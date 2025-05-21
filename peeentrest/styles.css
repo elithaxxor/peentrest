@@ -1,0 +1,356 @@
+/* Base styles */
+:root {
+  --primary-color: #8B0000;  /* Dark ruby red */
+  --secondary-color: #4A0404; /* Deeper red */
+  --accent-color: #FFE4E1;   /* Misty rose */
+  --text-color: #2D2D2D;
+  --light-text: #FFFFFF;
+  --border-radius: 1.5rem;   /* Increased border radius for softer look */
+}
+
+/* Decorative Elements */
+.decorative-flower {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.decorative-flower::before {
+  content: '🌹';
+  font-size: 100px;
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+}
+
+.top-left {
+  top: 20px;
+  left: 20px;
+  transform: rotate(-45deg);
+}
+
+.top-right {
+  top: 20px;
+  right: 20px;
+  transform: rotate(45deg);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+body {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+  background-image: 
+    linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%),
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.03) 1%, transparent 1%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.03) 1%, transparent 1%);
+  background-size: 100% 100%, 50px 50px, 50px 50px;
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+}
+
+/* Navigation */
+nav {
+  background-color: rgba(74, 4, 4, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  margin: 0 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+nav a {
+  color: var(--light-text) !important;
+  transition: all 0.4s ease;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+nav i.fas.fa-heart {
+  font-size: 1.5rem;
+  color: var(--light-text);
+  margin-right: 0.5rem;
+}
+
+nav a {
+  color: var(--light-text) !important;
+  transition: all 0.4s ease;
+}
+
+nav a:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Mother's Day Banner */
+.mothers-day-banner {
+  background-color: rgba(255, 228, 225, 0.9);
+  color: var(--primary-color);
+  padding: 1rem;
+  text-align: center;
+  font-style: italic;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  margin: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: glow 3s ease-in-out infinite;
+}
+
+.banner-flower {
+  display: inline-block;
+  margin: 0 10px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 4px 20px rgba(255, 228, 225, 0.2); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Hidden Mother's Day Message */
+.hidden-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  opacity: 0.3;
+  transition: all 0.6s ease;
+  cursor: default;
+  max-width: 300px;
+  text-align: right;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hidden-message:hover {
+  opacity: 1;
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.message-content {
+  position: relative;
+  z-index: 1;
+}
+
+.message-decoration {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  opacity: 0.5;
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+/* Main Content */
+main {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Upload Form */
+.upload-form {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upload-form:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Board Grid */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Card Styles */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Shopping Cart */
+.cart-section {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius);
+  margin-top: 2rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cart-section:hover {
+  transform: translateY(-2px);
+}
+
+.cart-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(5px);
+}
+
+/* Checkout Modal */
+.modal {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: translateY(0);
+}
+
+/* Form Inputs */
+input[type="text"],
+input[type="file"] {
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--light-text);
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.3);
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* File Input Button */
+input[type="file"]::file-selector-button {
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: var(--light-text);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  :root {
+    --border-radius: 1rem;
+  }
+  
+  .board-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  main {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+
+  .decorative-flower {
+    width: 100px;
+    height: 100px;
+  }
+
+  .decorative-flower::before {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .board-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hidden-message {
+    max-width: 200px;
+    font-size: 0.8rem;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .decorative-flower {
+    display: none;
+  }
+}
