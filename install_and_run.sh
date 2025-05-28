@@ -47,9 +47,9 @@ if [ -f package.json ]; then
 else
     # If no package.json, try to serve index.html with npx serve
     if [ -f index.html ]; then
-        npx serve . -l 3000 &
+        npx serve . -l 1958 &
         FRONTEND_PID=$!
-        echo "Frontend (static) running with PID $FRONTEND_PID on http://localhost:3000"
+        echo "Frontend (static) running with PID $FRONTEND_PID on http://localhost:1958"
     else
         echo "No frontend server found."
     fi
